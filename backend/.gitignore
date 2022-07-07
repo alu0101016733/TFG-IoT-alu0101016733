@@ -3,7 +3,7 @@
 /node_modules
 
 # don't track these, because we dont wan't them to get uploaded
-/conectionVariables.ts
+# /conectionVariables.ts
 
 # Logs
 logs
