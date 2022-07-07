@@ -1,0 +1,2 @@
+export const DAY_IN_MILISECONDS = 86400000;
+export const DAY_IN_SECONDS = 86400;
