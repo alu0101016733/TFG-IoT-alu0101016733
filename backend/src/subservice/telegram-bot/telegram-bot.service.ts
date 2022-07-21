@@ -29,11 +29,12 @@ export class TelegramBotService {
   async messageHandler(data) {
     const channels = await this.getChannelIds(data.warningId);
     channels.forEach((current) => {
-      let message = `NEW ALERT
+      const message = `Name: ${data.name}
 Department: ${data.department}
 Aula: ${data.aula}
 Min, Max of sensor: ${data.min}, ${data.max}
-Value: ${data.value}`;
+Value: ${data.value}
+Message: ${data.message}`;
       this.telegramBot.sendMessage(current.channelId, message);
       //this.telegramBot.sendMessage(current.channelId, JSON.stringify(data));
     });

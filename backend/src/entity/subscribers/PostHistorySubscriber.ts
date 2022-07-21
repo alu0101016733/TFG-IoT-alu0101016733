@@ -36,7 +36,7 @@ export class PostHistorySubscriber
     this.logger.log('history inserted');
     // https://github.com/typeorm/typeorm/blob/master/docs/select-query-builder.md
 
-    // check if warning was triggered
+    // get history data
     const historyView = await event.manager
       .createQueryBuilder(HistoryView, 'warning')
       .where('id = :hid', { hid: event.entity.id })
@@ -59,7 +59,7 @@ export class PostHistorySubscriber
       .getMany();
 
     if (result.length > 0) {
-      // websocket connection
+      // insert triggered warnings
       for (let i = 0; i < result.length; i++) {
         let inserted = await event.manager
           .createQueryBuilder()
